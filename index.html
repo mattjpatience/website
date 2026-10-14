@@ -1,0 +1,1255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Matthew Patience is an Assistant Professor of Linguistics and Spanish at Florida State University researching second language speech, multilingual acquisition, and pronunciation learning.">
+<meta name="author" content="Matthew Patience">
+<link rel="canonical" href="https://mattpatience.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Matthew Patience">
+<meta property="og:description" content="Matthew Patience is an Assistant Professor of Linguistics and Spanish at Florida State University researching second language speech, multilingual acquisition, and pronunciation learning.">
+<meta property="og:url" content="https://mattpatience.com/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%230f5f66%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2245%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2244%22%20text-anchor%3D%22middle%22%20fill%3D%22%23fbfcfb%22%3E%C9%99%3C/text%3E%3C/svg%3E">
+<title>Matthew Patience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Canadian+Aboriginal&text=%E1%90%83%E1%93%84%E1%92%83%E1%91%8E%E1%91%90%E1%91%A6&display=swap">
+<style>
+/* Layout: a dark "analysis window" hero with a full-width spectrogram of the name, then light editorial bands on a single wide column, closing on a dark contact band */
+:root {
+  --bg: #f5f7f6;
+  --surface: #ffffff;
+  --fg: #13201f;
+  --muted: #566765;
+  --rule: #d8e0de;
+  --accent: #0e6066;
+  --accent-strong: #0a474c;
+
+  /* hero and contact bands stay dark in both themes */
+  --ink: #0d1e20;
+  --ink-2: #12282a;
+  --on-ink: #e7efed;
+  --on-ink-muted: #94aba8;
+  --ink-rule: #274241;
+  --signal: #e9a23b;
+  --signal-wash: rgba(233, 162, 59, 0.13);
+
+  --f-display: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --f-body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --f-ipa: "Gentium Book Plus", "Charis SIL", "Noto Serif", "Times New Roman", serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --sg-h: clamp(170px, 19vw, 250px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1516;
+    --surface: #141e1f;
+    --fg: #e2eae8;
+    --muted: #98a9a6;
+    --rule: #263133;
+    --accent: #74c4c0;
+    --accent-strong: #a6ddd9;
+    --ink: #0a1718;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1516;
+  --surface: #141e1f;
+  --fg: #e2eae8;
+  --muted: #98a9a6;
+  --rule: #263133;
+  --accent: #74c4c0;
+  --accent-strong: #a6ddd9;
+  --ink: #0a1718;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--f-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3 { margin: 0; font-weight: 400; }
+a { color: var(--accent); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+a:hover { color: var(--accent-strong); }
+:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 3px; }
+
+.wrap {
+  max-width: 74rem;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (min-width: 760px) {
+  .wrap {
+    padding-left: max(2.5rem, env(safe-area-inset-left, 0px));
+    padding-right: max(2.5rem, env(safe-area-inset-right, 0px));
+  }
+}
+
+/* ---------- Shared type ---------- */
+.eyebrow {
+  font-family: var(--f-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.h2 {
+  font-family: var(--f-display);
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+.intro { color: var(--muted); max-width: 38rem; font-size: 1.1rem; text-wrap: pretty; }
+.sec-head { display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 3rem; }
+.label {
+  font-family: var(--f-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+
+.band { padding-block: clamp(4rem, 8vw, 6.5rem); scroll-margin-top: 0; }
+.band.alt { background: var(--surface); border-block: 1px solid var(--rule); }
+
+/* ---------- Hero ---------- */
+.hero { background: var(--ink); color: var(--on-ink); }
+.hero .wrap { padding-block: 1.25rem clamp(3rem, 6vw, 4.5rem); }
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  padding-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
+.wordmark {
+  font-family: var(--f-ipa);
+  font-size: 1.15rem;
+  color: var(--on-ink);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.wordmark:hover { color: var(--on-ink); }
+.links { display: flex; gap: 1.75rem; margin-left: auto; }
+.links a {
+  color: var(--on-ink-muted);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+.links a:hover { color: var(--on-ink); }
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid var(--ink-rule);
+  border-radius: 999px;
+  padding: 0.38rem 0.95rem;
+  color: var(--on-ink);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.pill:hover { border-color: var(--on-ink-muted); color: var(--on-ink); }
+
+.kicker {
+  font-family: var(--f-mono);
+  font-size: 0.8rem;
+  color: var(--on-ink-muted);
+  letter-spacing: 0.02em;
+  margin-bottom: 1.25rem;
+}
+.name {
+  font-family: var(--f-display);
+  font-size: clamp(3rem, 8.2vw, 6.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+  text-wrap: balance;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 2.5rem 4rem;
+  align-items: end;
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+.tagline {
+  font-family: var(--f-display);
+  font-size: clamp(1.3rem, 2.15vw, 1.7rem);
+  line-height: 1.35;
+  max-width: 34ch;
+  text-wrap: pretty;
+}
+.tagline em { font-style: italic; color: var(--signal); }
+.cta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  font-family: var(--f-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.btn-light { background: var(--on-ink); color: var(--ink); }
+.btn-light:hover { background: #ffffff; color: var(--ink); }
+.btn-ghost { border-color: var(--ink-rule); color: var(--on-ink); background: transparent; }
+.btn-ghost:hover { border-color: var(--on-ink-muted); color: var(--on-ink); }
+.btn svg { width: 1em; height: 1em; }
+
+.facts { display: flex; flex-direction: column; border-top: 1px solid var(--ink-rule); }
+.facts div {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding-block: 0.8rem;
+  border-bottom: 1px solid var(--ink-rule);
+  align-items: baseline;
+}
+.facts dt { font-family: var(--f-mono); font-size: 0.72rem; color: var(--on-ink-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.facts dd { margin: 0; font-size: 0.95rem; line-height: 1.45; }
+
+/* ---------- Spectrogram ---------- */
+.sg {
+  margin: clamp(2.5rem, 5vw, 3.75rem) 0 0;
+  background: var(--ink-2);
+  border: 1px solid var(--ink-rule);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.sg-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--ink-rule);
+  font-family: var(--f-mono);
+  font-size: 0.74rem;
+  color: var(--on-ink-muted);
+}
+.sg-read { color: var(--on-ink); min-height: 1.2em; }
+.sg-read .ipa { font-family: var(--f-ipa); font-size: 1rem; color: var(--signal); margin-right: 0.35rem; }
+.sg-grid {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 0.7rem;
+  padding: 1rem 1rem 0.5rem 0.75rem;
+}
+.sg-y {
+  height: var(--sg-h);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: right;
+  font-family: var(--f-mono);
+  font-size: 0.66rem;
+  color: var(--on-ink-muted);
+  line-height: 1;
+}
+.sg-body { position: relative; min-width: 0; }
+.sg-body canvas {
+  display: block;
+  width: 100%;
+  height: var(--sg-h);
+  border-radius: 2px;
+  cursor: crosshair;
+}
+.sg-hl {
+  position: absolute;
+  top: 0;
+  height: var(--sg-h);
+  background: var(--signal-wash);
+  border-left: 1px solid var(--signal);
+  border-right: 1px solid var(--signal);
+  pointer-events: none;
+}
+.sg-bound {
+  position: absolute;
+  top: 0;
+  height: calc(var(--sg-h) + 0.5rem + 2.2rem);
+  width: 0;
+  border-left: 1px dashed rgba(231, 239, 237, 0.2);
+  pointer-events: none;
+}
+.sg-play {
+  position: absolute;
+  top: 0;
+  height: var(--sg-h);
+  width: 2px;
+  margin-left: -1px;
+  background: var(--signal);
+  box-shadow: 0 0 12px rgba(233, 162, 59, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  animation: sweep 2.8s 0.5s linear forwards;
+}
+@keyframes sweep {
+  0% { left: 0; opacity: 1; }
+  94% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .sg-play { display: none; } }
+.tier {
+  display: flex;
+  height: 2.2rem;
+  border-top: 1px solid var(--ink-rule);
+}
+#tier-seg { margin-top: 0.5rem; }
+#tier-word { border-bottom: 1px solid var(--ink-rule); }
+.tier > * { flex: 0 0 auto; min-width: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.seg {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  color: var(--on-ink);
+  font-family: var(--f-ipa);
+  font-size: 1.08rem;
+  cursor: pointer;
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+.seg:hover, .seg.on { background: var(--signal-wash); color: var(--signal); }
+.word { font-family: var(--f-body); font-size: 0.82rem; color: var(--on-ink-muted); letter-spacing: 0.02em; }
+.word, .word + span { border-left: 1px dashed rgba(231, 239, 237, 0.2); }
+.sg-x {
+  grid-column: 2;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--f-mono);
+  font-size: 0.66rem;
+  color: var(--on-ink-muted);
+  padding-top: 0.45rem;
+}
+.sg-cap {
+  padding: 0.25rem 1rem 0.9rem;
+  font-size: 0.8rem;
+  color: var(--on-ink-muted);
+}
+.sg-cap .ipa { font-family: var(--f-ipa); color: var(--on-ink); font-size: 0.95rem; }
+
+/* ---------- Research questions ---------- */
+.qs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+.q {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 1.75rem 1.6rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+.q svg { width: 100%; height: auto; max-width: 260px; display: block; margin-bottom: 0.5rem; }
+.q h3 {
+  font-family: var(--f-display);
+  font-size: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.q-desc { color: var(--muted); font-size: 0.98rem; text-wrap: pretty; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; padding-top: 0.5rem; }
+.chips li {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--fg);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.18rem 0.65rem;
+}
+.dg-box { fill: var(--bg); stroke: var(--rule); }
+.dg-box-on { fill: var(--bg); stroke: var(--accent); }
+.dg-line { stroke: var(--accent); fill: none; stroke-width: 1.4; }
+.dg-line-soft { stroke: var(--rule); fill: none; stroke-width: 1.4; }
+.dg-dot { fill: var(--accent); }
+.dg-text { font-family: var(--f-body); font-size: 11px; fill: var(--fg); }
+.dg-text-muted { font-family: var(--f-body); font-size: 10.5px; fill: var(--muted); }
+
+/* Languages */
+.langs-wrap { margin-top: 4.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+.langs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--rule);
+}
+.langs li {
+  padding: 1.35rem 1rem 1.35rem 0;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+.langs .ln {
+  font-family: var(--f-display), "Noto Sans Canadian Aboriginal", "Euphemia UCAS", "Euphemia", sans-serif;
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+.langs .ln.syl { font-family: "Noto Sans Canadian Aboriginal", "Euphemia UCAS", "Euphemia", var(--f-body); font-size: clamp(1.2rem, 2vw, 1.55rem); }
+.langs .ln i { font-style: italic; }
+.langs .gl { font-size: 0.8rem; color: var(--muted); }
+
+/* ---------- Publications ---------- */
+.pubs { border-top: 1px solid var(--rule); }
+.pub {
+  display: grid;
+  grid-template-columns: 12rem minmax(0, 1fr);
+  gap: 0.5rem 2.5rem;
+  padding-block: 1.6rem;
+  border-bottom: 1px solid var(--rule);
+}
+.pub-meta { display: flex; flex-direction: column; gap: 0.2rem; }
+.pub-meta .yr { font-family: var(--f-mono); font-size: 0.8rem; color: var(--muted); }
+.pub-meta .jn { font-family: var(--f-display); font-style: italic; font-size: 1.05rem; color: var(--accent); line-height: 1.3; }
+.pub-title { font-family: var(--f-display); font-size: clamp(1.2rem, 1.9vw, 1.45rem); line-height: 1.3; text-wrap: pretty; }
+.pub-auth { margin-top: 0.4rem; font-size: 0.9rem; color: var(--muted); }
+.me { color: var(--fg); font-weight: 600; }
+
+details.all { margin-top: 2rem; }
+details.all summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--accent);
+  padding: 0.65rem 1.1rem;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--bg);
+  transition: border-color 0.15s ease;
+}
+details.all summary::-webkit-details-marker { display: none; }
+details.all summary:hover { border-color: var(--accent); }
+details.all summary .chev { transition: transform 0.2s ease; width: 0.9em; height: 0.9em; }
+details.all[open] summary .chev { transform: rotate(180deg); }
+.all-body { display: flex; flex-direction: column; gap: 2.25rem; margin-top: 2.25rem; max-width: 52rem; }
+.group { display: flex; flex-direction: column; gap: 0.9rem; }
+.entries { display: flex; flex-direction: column; gap: 0.9rem; }
+.entries li {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: baseline;
+  font-size: 0.97rem;
+  line-height: 1.55;
+}
+.entries .yr { font-family: var(--f-mono); font-size: 0.78rem; color: var(--muted); }
+.entries .txt { min-width: 0; overflow-wrap: anywhere; text-wrap: pretty; }
+
+/* ---------- Teaching ---------- */
+.split { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 3rem 5rem; align-items: start; }
+.split .sec-head { margin-bottom: 1.5rem; }
+.body-text { display: flex; flex-direction: column; gap: 1rem; max-width: 38rem; text-wrap: pretty; }
+.stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.stat {
+  border-top: 2px solid var(--accent);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.stat b {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.stat span { color: var(--muted); font-size: 0.92rem; line-height: 1.4; }
+.courses { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.9rem; }
+.course-list { border-top: 1px solid var(--rule); }
+.course-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem 1.5rem;
+  flex-wrap: wrap;
+  padding-block: 0.75rem;
+  border-bottom: 1px solid var(--rule);
+}
+.course-list .lvl { font-family: var(--f-mono); font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.prev { font-size: 0.95rem; color: var(--muted); margin-top: 0.5rem; text-wrap: pretty; }
+
+/* ---------- Talks ---------- */
+.talks { border-top: 1px solid var(--rule); }
+.talk {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 15rem) minmax(0, 1fr);
+  gap: 0.4rem 2rem;
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+.talk .when { font-family: var(--f-mono); font-size: 0.8rem; color: var(--muted); }
+.talk .city { font-family: var(--f-display); font-size: 1.55rem; line-height: 1.15; }
+.talk .what { min-width: 0; }
+.talk .what p + p { margin-top: 0.5rem; }
+.talk .venue { display: block; font-size: 0.88rem; color: var(--muted); margin-top: 0.2rem; }
+.note { margin-top: 1.5rem; font-size: 0.95rem; color: var(--muted); }
+
+/* ---------- Background ---------- */
+.path { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 1.5rem; }
+.stop {
+  position: relative;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+.stop::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 0;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--muted);
+}
+.stop.now::before { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 4px var(--bg), 0 0 0 5px var(--accent); }
+.stop .when { font-family: var(--f-mono); font-size: 0.78rem; color: var(--muted); }
+.stop .city { font-family: var(--f-display); font-size: 1.75rem; line-height: 1.1; }
+.stop .role { font-size: 0.93rem; line-height: 1.5; color: var(--muted); text-wrap: pretty; }
+.stop .role strong { color: var(--fg); font-weight: 500; }
+
+.awards-wrap { margin-top: 4rem; display: flex; flex-direction: column; gap: 1rem; }
+.awards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; border-top: 1px solid var(--rule); }
+.awards li {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding-block: 0.85rem;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+  font-size: 0.97rem;
+}
+.awards .yr { font-family: var(--f-mono); font-size: 0.78rem; color: var(--muted); white-space: nowrap; }
+.awards .txt { min-width: 0; }
+.awards .txt span { display: block; color: var(--muted); font-size: 0.88rem; }
+
+/* ---------- Contact ---------- */
+.contact { background: var(--ink); color: var(--on-ink); }
+.contact .wrap { padding-block: clamp(4rem, 8vw, 6.5rem) 2.5rem; }
+.contact .eyebrow { color: var(--signal); }
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 3rem 5rem; align-items: end; margin-top: 1rem; }
+.contact h2 { font-family: var(--f-display); font-size: clamp(2.4rem, 5vw, 3.75rem); line-height: 1.05; letter-spacing: -0.02em; }
+.contact .lede { margin-top: 1rem; color: var(--on-ink-muted); max-width: 32rem; }
+.email-line { margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem 1.25rem; }
+.email {
+  font-family: var(--f-display);
+  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+  color: var(--on-ink);
+  text-decoration-color: var(--ink-rule);
+  text-underline-offset: 0.18em;
+  overflow-wrap: anywhere;
+}
+.email:hover { color: var(--on-ink); text-decoration-color: var(--signal); }
+.copy {
+  background: none;
+  border: 1px solid var(--ink-rule);
+  border-radius: 999px;
+  color: var(--on-ink-muted);
+  font-family: var(--f-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+}
+.copy:hover { color: var(--on-ink); border-color: var(--on-ink-muted); }
+.contact-side { display: flex; flex-direction: column; gap: 1.25rem; }
+.contact-side address { font-style: normal; color: var(--on-ink-muted); line-height: 1.55; }
+.contact-side address strong { color: var(--on-ink); font-weight: 500; }
+.foot {
+  margin-top: clamp(3.5rem, 7vw, 5rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ink-rule);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  font-size: 0.8rem;
+  color: var(--on-ink-muted);
+}
+.foot .ipa { font-family: var(--f-ipa); font-size: 0.95rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .qs { grid-template-columns: minmax(0, 1fr); max-width: 40rem; }
+  .q svg { max-width: 240px; }
+  .split, .contact-grid, .hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .path { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 1.5rem; }
+  .talk { grid-template-columns: 6rem minmax(0, 1fr); }
+  .talk .what { grid-column: 2; }
+}
+@media (max-width: 760px) {
+  .links { order: 3; width: 100%; margin-left: 0; overflow-x: auto; gap: 1.4rem; padding-bottom: 0.25rem; scrollbar-width: none; }
+  .links::-webkit-scrollbar { display: none; }
+  .langs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pub { grid-template-columns: minmax(0, 1fr); }
+  .awards { grid-template-columns: minmax(0, 1fr); }
+  .sg-grid { padding: 0.75rem 0.6rem 0.4rem 0.5rem; column-gap: 0.45rem; }
+  .seg { font-size: 0.92rem; }
+  .word { font-size: 0.74rem; }
+  :root { --sg-h: 150px; }
+}
+@media (max-width: 520px) {
+  .path { grid-template-columns: minmax(0, 1fr); }
+  .talk { grid-template-columns: minmax(0, 1fr); }
+  .talk .what { grid-column: auto; }
+  .facts div { grid-template-columns: minmax(0, 1fr); gap: 0.15rem; }
+  .sg-y { display: none; }
+  .sg-grid { grid-template-columns: minmax(0, 1fr); }
+  .sg-x { grid-column: 1; }
+}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="wrap">
+    <header class="top">
+      <a class="wordmark" href="#top" lang="en-fonipa" title="Matthew Patience">/ˈmæθjuː ˈpeɪʃəns/</a>
+      <nav class="links" aria-label="Sections">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#talks">Talks</a>
+        <a href="#background">Background</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="pill" href="Patience_CV.pdf" target="_blank" rel="noopener">CV <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M8 2v9m0 0L4.5 7.5M8 11l3.5-3.5M3 14h10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </header>
+
+    <div id="top">
+      <p class="kicker">Phonetics · Second language speech · Multilingualism</p>
+      <h1 class="name">Matthew Patience</h1>
+      <div class="hero-grid">
+        <div>
+          <p class="tagline">I study how people learn to hear and produce the sounds of a new language, and <em>why some learners find it easier than others.</em></p>
+          <div class="cta">
+            <a class="btn btn-light" href="#research">See my research</a>
+            <a class="btn btn-ghost" href="Patience_CV.pdf" target="_blank" rel="noopener">Download CV <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9m0 0L4.5 7.5M8 11l3.5-3.5M3 14h10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+        <dl class="facts">
+          <div><dt>Position</dt><dd>Assistant Professor of Linguistics and Spanish, Florida State University</dd></div>
+          <div><dt>Program</dt><dd>Director, Spanish Basic Language Program</dd></div>
+          <div><dt>PhD</dt><dd>Hispanic Linguistics, University of Toronto</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <figure class="sg" aria-label="Spectrogram of the name Matthew Patience with word and segment tiers">
+      <div class="sg-bar">
+        <span>Spectrogram · 0–6000 Hz · wideband</span>
+        <span class="sg-read" id="sg-read" aria-live="polite">Point to a segment to identify it</span>
+      </div>
+      <div class="sg-grid">
+        <div class="sg-y" aria-hidden="true"><span>6000 Hz</span><span>4000</span><span>2000</span><span>0 Hz</span></div>
+        <div class="sg-body" id="sg-body">
+          <canvas id="sg-canvas" width="1315" height="180" aria-hidden="true"></canvas>
+          <div class="sg-hl" id="sg-hl" hidden></div>
+          <div class="sg-play" aria-hidden="true"></div>
+          <div class="tier" id="tier-seg" aria-label="Segment tier"></div>
+          <div class="tier" id="tier-word" aria-hidden="true"></div>
+        </div>
+        <div class="sg-x mono" aria-hidden="true"><span>0.000</span><span id="sg-dur">1.315 s</span></div>
+      </div>
+      <figcaption class="sg-cap">My name, <span class="ipa" lang="en-fonipa">[ˈmæθju ˈpʰeɪʃəns]</span>, with word and segment tiers. Synthesized for illustration, not recorded.</figcaption>
+    </figure>
+  </div>
+</div>
+
+<main>
+  <section class="band" id="research" aria-labelledby="research-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Research</p>
+        <h2 class="h2" id="research-h">Three questions behind my work</h2>
+        <p class="intro">My research sits where second language acquisition meets psycholinguistics, applied linguistics, and the speech sciences.</p>
+      </div>
+
+      <div class="qs">
+        <article class="q">
+          <svg viewBox="0 0 260 96" role="img" aria-label="Auditory processing and speech motor skill both feeding into L2 pronunciation">
+            <rect class="dg-box" x="1" y="6" width="130" height="30" rx="15"/>
+            <text class="dg-text" x="66" y="25" text-anchor="middle">Auditory processing</text>
+            <rect class="dg-box" x="1" y="60" width="130" height="30" rx="15"/>
+            <text class="dg-text" x="66" y="79" text-anchor="middle">Speech motor skill</text>
+            <path class="dg-line" d="M131 21 C 158 21, 158 48, 176 48"/>
+            <path class="dg-line" d="M131 75 C 158 75, 158 48, 176 48"/>
+            <rect class="dg-box-on" x="176" y="33" width="83" height="30" rx="15"/>
+            <text class="dg-text" x="217.5" y="52" text-anchor="middle">L2 speech</text>
+          </svg>
+          <p class="eyebrow">Individual differences</p>
+          <h3>Why do some learners master a new sound system faster than others?</h3>
+          <p class="q-desc">I examine how underlying auditory processing and speech motor skills shape pronunciation learning, and whether learners with different skill profiles benefit from different kinds of training. This includes developing and testing asynchronous online Spanish pronunciation training.</p>
+          <ul class="chips" aria-label="Languages"><li>Spanish</li><li>Hul’q’umi’num’</li></ul>
+        </article>
+
+        <article class="q">
+          <svg viewBox="0 0 260 96" role="img" aria-label="A first and second language both influencing a third language">
+            <circle class="dg-box" cx="20" cy="22" r="17"/>
+            <text class="dg-text" x="20" y="26" text-anchor="middle">L1</text>
+            <circle class="dg-box" cx="20" cy="74" r="17"/>
+            <text class="dg-text" x="20" y="78" text-anchor="middle">L2</text>
+            <path class="dg-line-soft" d="M20 39 L20 57" stroke-dasharray="3 3"/>
+            <path class="dg-line" d="M37 24 C 80 24, 90 48, 120 48"/>
+            <path class="dg-line" d="M37 72 C 80 72, 90 48, 120 48"/>
+            <circle class="dg-box-on" cx="142" cy="48" r="22"/>
+            <text class="dg-text" x="142" y="52" text-anchor="middle">L3</text>
+            <text class="dg-text-muted" x="174" y="45">new</text>
+            <text class="dg-text-muted" x="174" y="59">language</text>
+          </svg>
+          <p class="eyebrow">Multilingual acquisition</p>
+          <h3>How do the languages you already speak shape the next one?</h3>
+          <p class="q-desc">My current project follows trilingual German–English–Spanish speakers as they learn an artificial language I created. Earlier work examined how L1 Mandarin–L2 English speakers acquire L3 Spanish and L3 French.</p>
+          <ul class="chips" aria-label="Languages"><li>German</li><li>English</li><li>Spanish</li><li>Mandarin</li><li>French</li></ul>
+        </article>
+
+        <article class="q">
+          <svg viewBox="0 0 260 96" role="img" aria-label="Vocabulary and pronunciation measured across three semesters">
+            <text class="dg-text-muted" x="0" y="28">Vocabulary</text>
+            <text class="dg-text-muted" x="0" y="62">Pronunciation</text>
+            <path class="dg-line-soft" d="M106 24 H 236"/>
+            <path class="dg-line-soft" d="M106 58 H 236"/>
+            <circle class="dg-dot" cx="106" cy="24" r="4.5"/><circle class="dg-dot" cx="171" cy="24" r="4.5"/><circle class="dg-dot" cx="236" cy="24" r="4.5"/>
+            <circle class="dg-dot" cx="106" cy="58" r="4.5"/><circle class="dg-dot" cx="171" cy="58" r="4.5"/><circle class="dg-dot" cx="236" cy="58" r="4.5"/>
+            <text class="dg-text-muted" x="106" y="90" text-anchor="middle">Sem 1</text>
+            <text class="dg-text-muted" x="171" y="90" text-anchor="middle">Sem 2</text>
+            <text class="dg-text-muted" x="236" y="90" text-anchor="middle">Sem 3</text>
+          </svg>
+          <p class="eyebrow">Longitudinal development</p>
+          <h3>How do vocabulary and pronunciation grow during the first semesters of study?</h3>
+          <p class="q-desc">A study tracking vocabulary size and pronunciation across three semesters of Spanish, and the roles of working memory, inhibitory control, and other learner factors.</p>
+          <ul class="chips" aria-label="Languages"><li>Spanish</li></ul>
+        </article>
+      </div>
+
+      <div class="langs-wrap">
+        <p class="label">Languages in my research</p>
+        <ul class="langs">
+          <li><span class="ln" lang="es">Español</span><span class="gl">Spanish</span></li>
+          <li><span class="ln">English</span><span class="gl">English</span></li>
+          <li><span class="ln" lang="fr">Français</span><span class="gl">French</span></li>
+          <li><span class="ln" lang="zh">普通话</span><span class="gl">Mandarin</span></li>
+          <li><span class="ln" lang="de">Deutsch</span><span class="gl">German</span></li>
+          <li><span class="ln" lang="hur">Hul’q’umi’num’</span><span class="gl">Coast Salish</span></li>
+          <li><span class="ln syl" lang="iu">ᐃᓄᒃᑎᑐᑦ</span><span class="gl">Inuktitut</span></li>
+          <li><span class="ln"><i>Artificial</i></span><span class="gl">A language I created for a learning study</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="publications" aria-labelledby="pubs-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Publications</p>
+        <h2 class="h2" id="pubs-h">Selected publications</h2>
+        <p class="intro">Peer-reviewed work on second and third language speech, cross-linguistic influence, and prosody.</p>
+      </div>
+
+      <ol class="pubs">
+        <li class="pub">
+          <div class="pub-meta"><span class="yr">2025</span><span class="jn">Second Language Research</span></div>
+          <div><p class="pub-title">Assessing L1 Mandarin and L2 English influence on the L3 production of French obstruent coda voicing</p><p class="pub-auth"><span class="me">Patience, M.</span>, Qian, W., &amp; Steele, J. · Advance online publication</p></div>
+        </li>
+        <li class="pub">
+          <div class="pub-meta"><span class="yr">2023</span><span class="jn">Language and Speech</span></div>
+          <div><p class="pub-title">Relative difficulty in the acquisition of the phonetic parameters of obstruent coda voicing: Evidence from Mandarin-speaking learners of French</p><p class="pub-auth"><span class="me">Patience, M.</span>, &amp; Steele, J. · 66(3), 625–651</p></div>
+        </li>
+        <li class="pub">
+          <div class="pub-meta"><span class="yr">2022</span><span class="jn">Languages</span></div>
+          <div><p class="pub-title">The role of task complexity and dominant articulatory routines in the acquisition of L3 Spanish</p><p class="pub-auth"><span class="me">Patience, M.</span>, &amp; Qian, W. · 7(2), 1–26</p></div>
+        </li>
+        <li class="pub">
+          <div class="pub-meta"><span class="yr">2018</span><span class="jn">Journal of the European Second Language Association</span></div>
+          <div><p class="pub-title">Relative difficulty in the L2 acquisition of the Spanish dorsal fricative</p><p class="pub-auth"><span class="me">Patience, M.</span> · 2(1), 1–11</p></div>
+        </li>
+      </ol>
+
+      <details class="all">
+        <summary>All publications (15) <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <div class="all-body">
+          <div class="group">
+            <p class="label">Journal articles</p>
+            <ul class="entries">
+              <li><span class="yr">2025</span><span class="txt"><span class="me">Patience, M.</span>, Qian, W., &amp; Steele, J. Assessing L1 Mandarin and L2 English influence on the L3 production of French obstruent coda voicing. <i>Second Language Research</i>. Advance online publication.</span></li>
+              <li><span class="yr">2023</span><span class="txt"><span class="me">Patience, M.</span>, &amp; Steele, J. Relative difficulty in the acquisition of the phonetic parameters of obstruent coda voicing: Evidence from Mandarin-speaking learners of French. <i>Language and Speech</i>, <i>66</i>(3), 625–651.</span></li>
+              <li><span class="yr">2022</span><span class="txt">Colantoni, L., Klassen, G., <span class="me">Patience, M.</span>, Radu, M., &amp; Tararova, O. Perception and production of sentence types by Inuktitut-English bilinguals. <i>Languages</i>, <i>7</i>(3), 1–26.</span></li>
+              <li><span class="yr">2022</span><span class="txt"><span class="me">Patience, M.</span>, &amp; Qian, W. The role of task complexity and dominant articulatory routines in the acquisition of L3 Spanish. <i>Languages</i>, <i>7</i>(2), 1–26.</span></li>
+              <li><span class="yr">2020</span><span class="txt"><span class="me">Patience, M.</span>, Colantoni, L., Klassen, G., Radu, M., &amp; Tararova, O. The perception and comprehension of L2 English sentence types: Cross-linguistic influence and task effects. <i>Gradus</i>, <i>5</i>(1), 71–98.</span></li>
+              <li><span class="yr">2020</span><span class="txt">Radu, M., Colantoni, L., Klassen, G., <span class="me">Patience, M.</span>, Pérez-Leroux, A. T., &amp; Tararova, O. The perception and interpretation of sentence types by L1 Spanish–L2 English speakers. <i>Linguistic Approaches to Bilingualism</i>, <i>10</i>(4), 499–529.</span></li>
+              <li><span class="yr">2019</span><span class="txt"><span class="me">Patience, M.</span> An analysis of global and local crosslinguistic influence in L1 Mandarin-L2 English learners of L3 Spanish. <i>Estudos da Língua(gem)</i>, <i>17</i>(2), 187–208.</span></li>
+              <li><span class="yr">2018</span><span class="txt"><span class="me">Patience, M.</span> Acquisition of the tap-trill contrast by L1 Mandarin-L2 English-L3 Spanish speakers. <i>Languages</i>, <i>3</i>(4), 1–34.</span></li>
+              <li><span class="yr">2018</span><span class="txt"><span class="me">Patience, M.</span> Relative difficulty in the L2 acquisition of the Spanish dorsal fricative. <i>Journal of the European Second Language Association</i>, <i>2</i>(1), 1–11.</span></li>
+            </ul>
+          </div>
+          <div class="group">
+            <p class="label">Book chapter</p>
+            <ul class="entries">
+              <li><span class="yr">2016</span><span class="txt">Klassen, G., &amp; <span class="me">Patience, M.</span> Stressed clitics in Argentine Spanish: Which way does the clitic lean? In A. Cuza, L. Czerwionka, &amp; D. Olson (Eds.), <i>Inquiries in Hispanic Linguistics: From theory to empirical evidence</i> (pp. 149–170). John Benjamins.</span></li>
+            </ul>
+          </div>
+          <div class="group">
+            <p class="label">Conference proceedings</p>
+            <ul class="entries">
+              <li><span class="yr">2018</span><span class="txt"><span class="me">Patience, M.</span>, Marasco, O., Colantoni, L., Klassen, G., Radu, M., &amp; Tararova, O. Initial prosodic cues in statements vs. questions. <i>Proceedings of Speech Prosody 2018</i>, 463–467.</span></li>
+              <li><span class="yr">2018</span><span class="txt">Colantoni, L., Johns, A., Klassen, G., <span class="me">Patience, M.</span>, Radu, M., &amp; Tararova, O. L1 influence and task effects in the realization of sentence types by Inuktitut-English sequential bilinguals. <i>Proceedings of Speech Prosody 2018</i>, 932–936.</span></li>
+              <li><span class="yr">2016</span><span class="txt">Colantoni, L., Klassen, G., <span class="me">Patience, M.</span>, Radu, M., &amp; Tararova, O. Task-effects in the L2 perception and production of English sentence types by L1 Spanish speakers. <i>Proceedings of Speech Prosody 2016</i>, 11–15.</span></li>
+              <li><span class="yr">2015</span><span class="txt">Colantoni, L., Klassen, G., <span class="me">Patience, M.</span>, Radu, M., &amp; Tararova, O. Increasing context: L2 production of English intonation by L1 Mandarin and L1 Spanish speakers. <i>Proceedings of the 18th International Congress of Phonetic Sciences</i>. University of Glasgow.</span></li>
+            </ul>
+          </div>
+          <div class="group">
+            <p class="label">Other publications</p>
+            <ul class="entries">
+              <li><span class="yr">2013</span><span class="txt"><span class="me">Patience, M.</span> <span lang="es">La adquisición de la negación en español por hablantes de inglés y la naturaleza de las gramáticas de interlengua.</span> In D. Rozotto (Ed.), <i>Proceedings of the 2012 Annual Conference of the American Association of Teachers of Spanish and Portuguese, Ontario Chapter</i> (pp. 63–82). <span lang="es">Lugar Común Editorial</span>.</span></li>
+            </ul>
+          </div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="band" id="teaching" aria-labelledby="teaching-h">
+    <div class="wrap split">
+      <div>
+        <div class="sec-head">
+          <p class="eyebrow">Teaching and leadership</p>
+          <h2 class="h2" id="teaching-h">Leading Spanish language teaching at Florida State</h2>
+        </div>
+        <div class="body-text">
+          <p>Since 2024 I have directed the Spanish Basic Language Program in the Department of Modern Languages and Linguistics. I design, evaluate, and implement changes to the beginning and intermediate Spanish curriculum, and support the instructors and teaching assistants who teach it.</p>
+          <p>I also supervise PhD students and mentor undergraduate research assistants on my pronunciation projects.</p>
+        </div>
+      </div>
+      <div>
+        <div class="stats">
+          <div class="stat"><b>1,500</b><span>students in the program each semester</span></div>
+          <div class="stat"><b>28</b><span>instructors and teaching assistants</span></div>
+        </div>
+        <div class="courses">
+          <p class="label">Courses at Florida State</p>
+          <ul class="course-list">
+            <li><span>Introduction to Language, Language Learning, and Language Instruction</span><span class="lvl">Graduate</span></li>
+            <li><span>Acquisition of Spanish Phonology</span><span class="lvl">Graduate</span></li>
+            <li><span>Sociolinguistics</span><span class="lvl">Undergraduate</span></li>
+          </ul>
+          <p class="prev">Previously taught at the University of Victoria, Simon Fraser University, Brock University, and the University of Toronto, including Acoustic Phonetics, Physiology of Speech Production, and Contrastive Linguistics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="talks" aria-labelledby="talks-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Talks</p>
+        <h2 class="h2" id="talks-h">Recent presentations</h2>
+      </div>
+      <ol class="talks">
+        <li class="talk">
+          <span class="when">Jan 2026</span>
+          <span class="city">Reading, UK</span>
+          <div class="what"><p>Evaluating L1 German and L2 English influence in the acquisition of L3 Spanish consonants<span class="venue">V Bilingualism in the Hispanic and Lusophone World Conference</span></p></div>
+        </li>
+        <li class="talk">
+          <span class="when">Oct 2025</span>
+          <span class="city">Madrid, Spain</span>
+          <div class="what"><p>Examining phonological transfer at the initial state of learning an artificial language<span class="venue">L3 Workshop, 9th Workshop on Multilingual Acquisition, Processing, and Use</span></p></div>
+        </li>
+        <li class="talk">
+          <span class="when">Apr 2025</span>
+          <span class="city">Toronto, Canada</span>
+          <div class="what">
+            <p>Examining initial state transfer: Evidence from L1 German–L2 English–L3 Spanish speakers learning an artificial language<span class="venue">New Sounds 2025</span></p>
+            <p>The role of underlying articulatory and perceptual skills in the acquisition of Hul’q’umi’num’ pronunciation<span class="venue">New Sounds 2025, with S. Bird</span></p>
+          </div>
+        </li>
+        <li class="talk">
+          <span class="when">Sep 2024</span>
+          <span class="city">Tartu, Estonia</span>
+          <div class="what"><p>Evaluating the effectiveness of asynchronous online pronunciation training in Spanish<span class="venue">International Symposium on Applied Phonetics (ISAPh 2024), with S. Bird</span></p></div>
+        </li>
+      </ol>
+      <p class="note">The full list of presentations and invited talks is in my <a href="Patience_CV.pdf" target="_blank" rel="noopener">CV</a>.</p>
+    </div>
+  </section>
+
+  <section class="band" id="background" aria-labelledby="bg-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Background</p>
+        <h2 class="h2" id="bg-h">From Toronto to Tallahassee</h2>
+      </div>
+      <ol class="path">
+        <li class="stop">
+          <span class="when">2012 · 2022</span>
+          <span class="city">Toronto</span>
+          <p class="role"><strong>MA and PhD in Hispanic Linguistics</strong>, University of Toronto. Dissertation: <i>Articulatory Difficulty in L2 Spanish</i>.</p>
+        </li>
+        <li class="stop">
+          <span class="when">2022–2023</span>
+          <span class="city">Victoria</span>
+          <p class="role"><strong>Assistant Professor (Limited Term)</strong> and SSHRC Postdoctoral Fellow, University of Victoria.</p>
+        </li>
+        <li class="stop">
+          <span class="when">2024 · 2025</span>
+          <span class="city">Münster</span>
+          <p class="role"><strong>Alexander von Humboldt Research Fellow</strong>, Department of English, University of Münster.</p>
+        </li>
+        <li class="stop now">
+          <span class="when">2024–present</span>
+          <span class="city">Tallahassee</span>
+          <p class="role"><strong>Assistant Professor of Linguistics and Spanish</strong>, Florida State University.</p>
+        </li>
+      </ol>
+
+      <div class="awards-wrap">
+        <p class="label">Fellowships and awards</p>
+        <ul class="awards">
+          <li><span class="yr">2024, 2025</span><span class="txt">Alexander von Humboldt Research Fellowship<span>Alexander von Humboldt Foundation</span></span></li>
+          <li><span class="yr">2022–2023</span><span class="txt">Postdoctoral Fellowship<span>Social Sciences and Humanities Research Council of Canada</span></span></li>
+          <li><span class="yr">2025</span><span class="txt">First Year Assistant Professor Grant<span>Florida State University</span></span></li>
+          <li><span class="yr">2014–2017</span><span class="txt">Joseph-Armand Bombardier Canada Graduate Scholarship<span>Social Sciences and Humanities Research Council of Canada</span></span></li>
+          <li><span class="yr">2022</span><span class="txt">Student Achievement Award<span>Canadian Linguistic Association</span></span></li>
+          <li><span class="yr">2014–2019</span><span class="txt">Junior Fellow<span>Massey College, University of Toronto</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="contact" id="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <div class="contact-grid">
+      <div>
+        <h2 id="contact-h">Get in touch</h2>
+        <p class="lede">For research collaborations, graduate supervision, or questions about the Spanish program, email is the best way to reach me.</p>
+        <div class="email-line">
+          <a class="email" id="email" href="mailto:mpatience@fsu.edu">mpatience@fsu.edu</a>
+          <button type="button" class="copy" id="copy-email">Copy address</button>
+        </div>
+      </div>
+      <div class="contact-side">
+        <address><strong>Department of Modern Languages and Linguistics</strong><br>Florida State University<br>Tallahassee, Florida</address>
+        <div><a class="btn btn-light" href="Patience_CV.pdf" target="_blank" rel="noopener">Download CV (PDF) <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9m0 0L4.5 7.5M8 11l3.5-3.5M3 14h10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      </div>
+    </div>
+    <div class="foot">
+      <span>© 2026 Matthew Patience</span>
+      <span class="ipa" lang="en-fonipa">/ˈmæθjuː ˈpeɪʃəns/</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  /* ---------- Spectrogram of the name ---------- */
+  var SEGS = [
+    { ipa: '',   d: 60,  k: 'sil' },
+    { ipa: 'm',  d: 70,  k: 'nas', F: [280, 1100, 2250, 3300], w: 0, desc: 'voiced bilabial nasal' },
+    { ipa: 'æ',  d: 135, k: 'vow', F: [730, 1720, 2480, 3500], w: 0, desc: 'near-open front unrounded vowel' },
+    { ipa: 'θ',  d: 110, k: 'fri', lo: 1300, pk: 0, amp: 0.3, w: 0, desc: 'voiceless dental fricative' },
+    { ipa: 'j',  d: 60,  k: 'gli', F: [290, 2150, 2950, 3600], w: 0, desc: 'palatal approximant' },
+    { ipa: 'u',  d: 130, k: 'vow', F: [330, 1350, 2300, 3350], w: 0, desc: 'close back rounded vowel' },
+    { ipa: 'pʰ', d: 120, k: 'stp', cl: 70, w: 1, desc: 'voiceless aspirated bilabial stop' },
+    { ipa: 'eɪ', d: 170, k: 'vow', F: [540, 1880, 2550, 3500], F2: [360, 2250, 2850, 3600], w: 1, desc: 'closing diphthong, stressed' },
+    { ipa: 'ʃ',  d: 130, k: 'fri', lo: 1900, pk: 2900, amp: 0.9, w: 1, desc: 'voiceless postalveolar fricative' },
+    { ipa: 'ə',  d: 55,  k: 'vow', F: [520, 1550, 2500, 3400], w: 1, desc: 'mid central vowel (schwa)' },
+    { ipa: 'n',  d: 70,  k: 'nas', F: [260, 1500, 2500, 3400], w: 1, desc: 'voiced alveolar nasal' },
+    { ipa: 's',  d: 145, k: 'fri', lo: 3900, pk: 5300, amp: 0.95, w: 1, desc: 'voiceless alveolar fricative' },
+    { ipa: '',   d: 60,  k: 'sil' }
+  ];
+  var WORDS = ['Matthew', 'Patience'];
+  var FMAX = 6000, H = 180;
+
+  var t0 = 0;
+  SEGS.forEach(function (s) { s.t = t0; t0 += s.d; });
+  var T = t0;
+
+  var canvas = document.getElementById('sg-canvas');
+  var body = document.getElementById('sg-body');
+  var hl = document.getElementById('sg-hl');
+  var read = document.getElementById('sg-read');
+  var defaultRead = read ? read.innerHTML : '';
+  document.getElementById('sg-dur').textContent = (T / 1000).toFixed(3) + ' s';
+
+  function rng(seed) {
+    return function () {
+      seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+      var t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+  var rnd = rng(20261014);
+
+  // formant keyframes across voiced segments (gives natural transitions)
+  var keys = [];
+  SEGS.forEach(function (s, i) {
+    if (s.F) {
+      keys.push({ t: s.t + s.d * 0.3, F: s.F });
+      keys.push({ t: s.t + s.d * 0.7, F: s.F2 || s.F });
+    }
+  });
+  function formantsAt(t) {
+    if (t <= keys[0].t) return keys[0].F;
+    for (var i = 0; i < keys.length - 1; i++) {
+      var a = keys[i], b = keys[i + 1];
+      if (t >= a.t && t <= b.t) {
+        var u = (t - a.t) / (b.t - a.t);
+        return a.F.map(function (f, k) { return f + (b.F[k] - f) * u; });
+      }
+    }
+    return keys[keys.length - 1].F;
+  }
+  function segAt(t) {
+    for (var i = 0; i < SEGS.length; i++) if (t < SEGS[i].t + SEGS[i].d) return i;
+    return SEGS.length - 1;
+  }
+  function g(x, mu, bw) { var z = (x - mu) / bw; return Math.exp(-0.5 * z * z); }
+  function ramp(x, w) { return Math.max(0, Math.min(1, x / w)); }
+
+  function draw() {
+    if (!canvas || !canvas.getContext) return;
+    canvas.width = T; canvas.height = H;
+    var ctx = canvas.getContext('2d');
+    var img = ctx.createImageData(T, H);
+    var stops = [[0, [18, 40, 42]], [0.32, [24, 70, 74]], [0.58, [44, 136, 134]], [0.8, [150, 212, 202]], [1, [246, 252, 249]]];
+    var lut = [];
+    for (var i = 0; i < 256; i++) {
+      var v = i / 255, j = 0;
+      while (j < stops.length - 2 && v > stops[j + 1][0]) j++;
+      var a = stops[j], b = stops[j + 1], u = (v - a[0]) / (b[0] - a[0]);
+      lut.push([0, 1, 2].map(function (c) { return Math.round(a[1][c] + (b[1][c] - a[1][c]) * u); }));
+    }
+    var stressA = SEGS[2].t + 60, stressB = SEGS[7].t + 70;
+    var phase = 0;
+    var vowBW = [100, 130, 170, 210];
+    var amps = { vow: [1, 0.72, 0.48, 0.32], gli: [0.85, 0.62, 0.45, 0.3], nas: [0.8, 0.13, 0.1, 0.08] };
+    var envs = { vow: 1, gli: 0.85, nas: 0.6 };
+    var aspF = SEGS[7].F;
+
+    for (var x = 0; x < T; x++) {
+      var t = x + 0.5;
+      var si = segAt(t), s = SEGS[si], loc = t - s.t;
+      var prev = SEGS[si - 1] || {}, next = SEGS[si + 1] || {};
+      var f0 = 128 - 26 * (t / T) + 16 * g(t, stressA, 70) + 22 * g(t, stressB, 80);
+      var voiced = s.k === 'vow' || s.k === 'gli' || s.k === 'nas';
+      if (voiced) phase += f0 / 1000;
+      var pulse = 0.5 + 0.5 * Math.pow(0.5 + 0.5 * Math.cos(2 * Math.PI * phase), 3);
+      var F = voiced ? formantsAt(t) : null;
+      var env = 1;
+      if (voiced) {
+        env = envs[s.k];
+        if (prev.k === 'sil' || prev.k === 'stp' || prev.k === 'fri') env *= ramp(loc, 14);
+        if (next.k === 'sil' || next.k === 'fri' || next.k === 'stp') env *= ramp(s.d - loc, 18);
+      } else if (s.k === 'fri') {
+        env = ramp(loc, 22) * ramp(s.d - loc, 22);
+      }
+      for (var y = 0; y < H; y++) {
+        var f = (y + 0.5) * FMAX / H;
+        var I = 0;
+        if (voiced) {
+          var e = 0.55 * Math.exp(-f / 170);
+          var A = amps[s.k];
+          for (var k = 0; k < 4; k++) e += A[k] * g(f, F[k], vowBW[k]);
+          e += 0.07 * Math.exp(-f / 2500);
+          I = env * e * pulse * (0.82 + 0.36 * rnd());
+        } else if (s.k === 'fri') {
+          var base = Math.max(0, Math.min(1, (f - (s.lo - 450)) / 750));
+          var shape = s.amp * (0.5 * base + (s.pk ? 0.65 * g(f, s.pk, 750) * base : 0));
+          if (!s.pk) shape *= 0.55 + 0.45 * (f / FMAX);
+          I = env * shape * (0.25 + 1.0 * Math.pow(rnd(), 1.4));
+        } else if (s.k === 'stp') {
+          if (loc < s.cl) {
+            I = 0;
+          } else if (loc < s.cl + 4) {
+            I = 0.85 * (0.45 + 0.55 * Math.exp(-f / 4000)) * (0.6 + 0.4 * rnd());
+          } else {
+            var asp = 0.1 * Math.exp(-f / 3500);
+            for (var k2 = 0; k2 < 4; k2++) asp += [0.25, 0.4, 0.35, 0.28][k2] * g(f, aspF[k2], 220 + 40 * k2);
+            I = asp * ramp(s.d - loc + 10, 46) * (0.25 + 0.95 * Math.pow(rnd(), 1.3));
+          }
+        }
+        I += 0.012 * rnd();
+        var val = Math.log(1 + 28 * I) / Math.log(29);
+        val = Math.max(0, Math.min(1, val));
+        val = Math.pow(val, 1.12);
+        var c = lut[Math.round(val * 255)];
+        var p = ((H - 1 - y) * T + x) * 4;
+        img.data[p] = c[0]; img.data[p + 1] = c[1]; img.data[p + 2] = c[2]; img.data[p + 3] = 255;
+      }
+    }
+    ctx.putImageData(img, 0, 0);
+  }
+  try { draw(); } catch (e) {}
+
+  // tiers and boundaries
+  var segTier = document.getElementById('tier-seg');
+  var wordTier = document.getElementById('tier-word');
+  var segButtons = [];
+  function pct(v) { return (v / T * 100) + '%'; }
+  SEGS.forEach(function (s, i) {
+    if (s.k === 'sil') {
+      var gap = document.createElement('span');
+      gap.style.width = pct(s.d);
+      segTier.appendChild(gap);
+    } else {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'seg';
+      b.style.width = pct(s.d);
+      b.textContent = s.ipa;
+      b.setAttribute('aria-label', s.ipa + ', ' + s.desc);
+      b.addEventListener('mouseenter', function () { show(i); });
+      b.addEventListener('focus', function () { show(i); });
+      b.addEventListener('click', function () { show(i); });
+      b.addEventListener('mouseleave', clear);
+      b.addEventListener('blur', clear);
+      segTier.appendChild(b);
+      segButtons[i] = b;
+    }
+  });
+  // word tier
+  var wStart = {}, wEnd = {};
+  SEGS.forEach(function (s) {
+    if (s.w === undefined) return;
+    if (wStart[s.w] === undefined) wStart[s.w] = s.t;
+    wEnd[s.w] = s.t + s.d;
+  });
+  [0, 1].forEach(function (w) {
+    var el = document.createElement('span');
+    el.className = 'word';
+    el.style.width = pct(wEnd[w] - wStart[w]);
+    el.textContent = WORDS[w];
+    wordTier.appendChild(el);
+  });
+  var lead = document.createElement('span'); lead.style.width = pct(SEGS[0].d);
+  wordTier.insertBefore(lead, wordTier.firstChild);
+  var tail = document.createElement('span'); tail.style.width = pct(SEGS[SEGS.length - 1].d);
+  wordTier.appendChild(tail);
+
+  SEGS.forEach(function (s, i) {
+    if (i === 0) return;
+    var line = document.createElement('div');
+    line.className = 'sg-bound';
+    line.style.left = pct(s.t);
+    body.appendChild(line);
+  });
+
+  function show(i, extra) {
+    var s = SEGS[i];
+    if (!s || s.k === 'sil') { clear(); return; }
+    hl.hidden = false;
+    hl.style.left = pct(s.t);
+    hl.style.width = pct(s.d);
+    segButtons.forEach(function (b, j) { if (b) b.classList.toggle('on', j === i); });
+    read.innerHTML = '<span class="ipa">[' + s.ipa + ']</span>' + s.desc + ' · ' + s.d + ' ms' + (extra || '');
+  }
+  function clear() {
+    hl.hidden = true;
+    segButtons.forEach(function (b) { if (b) b.classList.remove('on'); });
+    read.innerHTML = defaultRead;
+  }
+  canvas.addEventListener('mousemove', function (ev) {
+    var r = canvas.getBoundingClientRect();
+    var fx = (ev.clientX - r.left) / r.width, fy = (ev.clientY - r.top) / r.height;
+    var t = Math.max(0, Math.min(T - 1, fx * T));
+    var hz = Math.round((1 - fy) * FMAX / 50) * 50;
+    var i = segAt(t);
+    var cur = ' · <span class="mono">' + (t / 1000).toFixed(3) + ' s, ' + hz + ' Hz</span>';
+    if (SEGS[i].k === 'sil') {
+      clear();
+      read.innerHTML = 'silence · <span class="mono">' + (t / 1000).toFixed(3) + ' s</span>';
+    } else {
+      show(i, cur);
+    }
+  });
+  canvas.addEventListener('mouseleave', clear);
+
+  /* ---------- Copy email ---------- */
+  var copyBtn = document.getElementById('copy-email');
+  var emailEl = document.getElementById('email');
+  if (copyBtn && emailEl) {
+    copyBtn.addEventListener('click', function () {
+      var text = emailEl.textContent.trim();
+      function done() {
+        copyBtn.textContent = 'Copied';
+        setTimeout(function () { copyBtn.textContent = 'Copy address'; }, 1800);
+      }
+      function selectIt() {
+        try {
+          var range = document.createRange();
+          range.selectNodeContents(emailEl);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          copyBtn.textContent = 'Selected. Press Ctrl+C to copy';
+        } catch (e) {}
+      }
+      try { navigator.clipboard.writeText(text).then(done, selectIt); } catch (e) { selectIt(); }
+    });
+  }
+
+  /* ---------- In-page links ---------- */
+  var reduce = false;
+  try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+  Array.prototype.forEach.call(document.querySelectorAll('a[href^="#"]'), function (a) {
+    a.addEventListener('click', function (ev) {
+      var id = a.getAttribute('href').slice(1);
+      var target = document.getElementById(id);
+      if (!target) return;
+      ev.preventDefault();
+      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      try { history.replaceState(null, '', '#' + id); } catch (e) {}
+    });
+  });
+})();
+</script>
+</body>
+</html>
