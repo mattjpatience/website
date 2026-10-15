@@ -204,7 +204,7 @@ a:hover { color: var(--accent-strong); }
   font-family: var(--f-display);
   font-size: clamp(1.3rem, 2.15vw, 1.7rem);
   line-height: 1.35;
-  max-width: 34ch;
+  max-width: 40ch;
   text-wrap: pretty;
 }
 .tagline em { font-style: italic; color: var(--signal); }
@@ -382,6 +382,10 @@ a:hover { color: var(--accent-strong); }
   text-wrap: balance;
 }
 .q-desc { color: var(--muted); font-size: 0.98rem; text-wrap: pretty; }
+.q-list { display: flex; flex-direction: column; gap: 0.45rem; color: var(--muted); font-size: 0.95rem; line-height: 1.5; }
+.q-list li { position: relative; padding-left: 1rem; text-wrap: pretty; }
+.q-list strong { color: var(--fg); font-weight: 600; }
+.q-list li::before { content: ""; position: absolute; left: 0; top: 0.68em; width: 0.45rem; height: 1px; background: var(--accent); }
 .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; padding-top: 0.5rem; }
 .chips li {
   font-size: 0.78rem;
@@ -666,7 +670,7 @@ details.all[open] summary .chev { transform: rotate(180deg); }
       <h1 class="name">Matthew Patience</h1>
       <div class="hero-grid">
         <div>
-          <p class="tagline">I study how people learn a new language, how language learning develops over time, why development varies so much across individuals, and how we can use techonology to make language learning more effective <em>why some learners find it easier than others.</em></p>
+          <p class="tagline">I study how people learn a new language, how language learning develops over time, <em>why development varies so much across individuals,</em> and how we can use technology to make language learning more effective.</p>
           <div class="cta">
             <a class="btn btn-light" href="#research">See my research</a>
             <a class="btn btn-ghost" href="Patience_CV.pdf" target="_blank" rel="noopener">Download CV <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9m0 0L4.5 7.5M8 11l3.5-3.5M3 14h10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -712,19 +716,27 @@ details.all[open] summary .chev { transform: rotate(180deg); }
 
       <div class="qs">
         <article class="q">
-          <svg viewBox="0 0 260 96" role="img" aria-label="Auditory processing and speech motor skill both feeding into L2 pronunciation">
-            <rect class="dg-box" x="1" y="6" width="130" height="30" rx="15"/>
-            <text class="dg-text" x="66" y="25" text-anchor="middle">Auditory processing</text>
-            <rect class="dg-box" x="1" y="60" width="130" height="30" rx="15"/>
-            <text class="dg-text" x="66" y="79" text-anchor="middle">Speech motor skill</text>
-            <path class="dg-line" d="M131 21 C 158 21, 158 48, 176 48"/>
-            <path class="dg-line" d="M131 75 C 158 75, 158 48, 176 48"/>
-            <rect class="dg-box-on" x="176" y="33" width="83" height="30" rx="15"/>
-            <text class="dg-text" x="217.5" y="52" text-anchor="middle">L2 speech</text>
+          <svg viewBox="0 0 260 96" role="img" aria-label="Three lines of pronunciation research: development, abilities and skills, and training">
+            <rect class="dg-box" x="1" y="2" width="118" height="26" rx="13"/>
+            <text class="dg-text" x="60" y="19" text-anchor="middle">Development</text>
+            <rect class="dg-box" x="1" y="35" width="118" height="26" rx="13"/>
+            <text class="dg-text" x="60" y="52" text-anchor="middle">Abilities &amp; skills</text>
+            <rect class="dg-box" x="1" y="68" width="118" height="26" rx="13"/>
+            <text class="dg-text" x="60" y="85" text-anchor="middle">Training</text>
+            <path class="dg-line" d="M119 15 C 146 15, 148 48, 170 48"/>
+            <path class="dg-line" d="M119 48 H 170"/>
+            <path class="dg-line" d="M119 81 C 146 81, 148 48, 170 48"/>
+            <rect class="dg-box-on" x="170" y="33" width="89" height="30" rx="15"/>
+            <text class="dg-text" x="214.5" y="52" text-anchor="middle">Pronunciation</text>
           </svg>
-          <p class="eyebrow">Individual differences</p>
-          <h3>Why do some learners master a new sound system faster than others?</h3>
-          <p class="q-desc">I examine how underlying auditory processing and speech motor skills shape pronunciation learning, and whether learners with different skill profiles benefit from different kinds of training. This includes developing and testing asynchronous online Spanish pronunciation training.</p>
+          <p class="eyebrow">Pronunciation Development</p>
+          <h3>How does pronunciation develop, and how can we teach it more effectively?</h3>
+          <p class="q-desc">This research looks at pronunciation from three angles:</p>
+          <ul class="q-list">
+            <li><strong>Development:</strong> Spanish pronunciation development over three semesters of study</li>
+            <li><strong>Skills:</strong> the roles of cognitive measures, auditory acuity, and speech motor skill, in learners of Spanish and of Hul’q’umi’num’</li>
+            <li><strong>Pronunciation Training:</strong> Spanish pronunciation training methods delivered with online asynchronous tools</li>
+          </ul>
           <ul class="chips" aria-label="Languages"><li>Spanish</li><li>Hul’q’umi’num’</li></ul>
         </article>
 
@@ -744,25 +756,22 @@ details.all[open] summary .chev { transform: rotate(180deg); }
           </svg>
           <p class="eyebrow">Multilingual acquisition</p>
           <h3>How do the languages you already speak shape the next one?</h3>
-          <p class="q-desc">My current project follows trilingual German–English–Spanish speakers as they learn an artificial language I created. Earlier work examined how L1 Mandarin–L2 English speakers acquire L3 Spanish and L3 French.</p>
+          <p class="q-desc">My current project investigates trilingual German–English–Spanish speakers learning an artificial language I created. Earlier work examined how L1 Mandarin–L2 English speakers acquire L3 Spanish and L3 French.</p>
           <ul class="chips" aria-label="Languages"><li>German</li><li>English</li><li>Spanish</li><li>Mandarin</li><li>French</li></ul>
         </article>
 
         <article class="q">
-          <svg viewBox="0 0 260 96" role="img" aria-label="Vocabulary and pronunciation measured across three semesters">
-            <text class="dg-text-muted" x="0" y="28">Vocabulary</text>
-            <text class="dg-text-muted" x="0" y="62">Pronunciation</text>
-            <path class="dg-line-soft" d="M106 24 H 236"/>
-            <path class="dg-line-soft" d="M106 58 H 236"/>
-            <circle class="dg-dot" cx="106" cy="24" r="4.5"/><circle class="dg-dot" cx="171" cy="24" r="4.5"/><circle class="dg-dot" cx="236" cy="24" r="4.5"/>
-            <circle class="dg-dot" cx="106" cy="58" r="4.5"/><circle class="dg-dot" cx="171" cy="58" r="4.5"/><circle class="dg-dot" cx="236" cy="58" r="4.5"/>
-            <text class="dg-text-muted" x="106" y="90" text-anchor="middle">Sem 1</text>
-            <text class="dg-text-muted" x="171" y="90" text-anchor="middle">Sem 2</text>
-            <text class="dg-text-muted" x="236" y="90" text-anchor="middle">Sem 3</text>
+          <svg viewBox="0 0 260 96" role="img" aria-label="A short Spanish exchange between an AI avatar and a learner">
+            <path class="dg-box" d="M16 4 H 120 a 14 14 0 0 1 0 28 H 24 l -10 8 l 2 -8 a 14 14 0 0 1 0 -28 Z"/>
+            <text class="dg-text" x="68" y="22" text-anchor="middle" lang="es">¿Qué hiciste ayer?</text>
+            <text class="dg-text-muted" x="142" y="22">AI avatar</text>
+            <path class="dg-box-on" d="M158 52 H 244 a 14 14 0 0 1 0 28 l 2 8 l -10 -8 H 158 a 14 14 0 0 1 0 -28 Z"/>
+            <text class="dg-text" x="201" y="70" text-anchor="middle" lang="es">Fui a la playa.</text>
+            <text class="dg-text-muted" x="136" y="70" text-anchor="end">Learner</text>
           </svg>
-          <p class="eyebrow">Longitudinal development</p>
-          <h3>How do vocabulary and pronunciation grow during the first semesters of study?</h3>
-          <p class="q-desc">A study tracking vocabulary size and pronunciation across three semesters of Spanish, and the roles of working memory, inhibitory control, auditory acuity, and speech motor skill.</p>
+          <p class="eyebrow">AI and language learning</p>
+          <h3>Can conversation practice with AI conversation agents improve spoken Spanish?</h3>
+          <p class="q-desc">I am studying how conversations with AI agents, which give learners automated feedback, can help students improve their oral production in Spanish. </p>
           <ul class="chips" aria-label="Languages"><li>Spanish</li></ul>
         </article>
       </div>
@@ -870,8 +879,8 @@ details.all[open] summary .chev { transform: rotate(180deg); }
           <h2 class="h2" id="teaching-h">Leading Spanish language teaching at Florida State</h2>
         </div>
         <div class="body-text">
-          <p>Since 2024 I have directed the Spanish Basic Language Program in the Department of Modern Languages and Linguistics. I design, evaluate, and implement changes to the beginning and intermediate Spanish curriculum, and support the instructors and teaching assistants who teach it.</p>
-          <p>I also supervise PhD students and mentor undergraduate research assistants on my pronunciation projects.</p>
+          <p>Since 2024 I have directed the Spanish Basic Language Program in the Department of Modern Languages and Linguistics. I design, evaluate, and implement changes to the beginning and intermediate Spanish curriculum, and support the instructors who teach it.</p>
+          <p>I also supervise graduate students and mentor undergraduate research assistants on my projects.</p>
         </div>
       </div>
       <div>
@@ -880,14 +889,14 @@ details.all[open] summary .chev { transform: rotate(180deg); }
           <div class="stat"><b>25</b><span>teaching faculty and graduate student instructors</span></div>
         </div>
         <div class="courses">
-          <p class="label">Recent courses I've been teaching</p>
+          <p class="label">Recent courses</p>
           <ul class="course-list">
             <li><span>Introduction to Language, Language Learning, and Language Instruction</span><span class="lvl">Graduate</span></li>
             <li><span>Acquisition of Spanish Phonology</span><span class="lvl">Graduate</span></li>
             <li><span>Sociolinguistics</span><span class="lvl">Undergraduate</span></li>
             <li><span>The Science of Speech: Experimental Approaches to Production and Perception</span><span class="lvl">Undergraduate</span></li>
           </ul>
-          <p class="prev">Previously taught at the University of Victoria, Simon Fraser University, Brock University, and the University of Toronto, including Acoustic Phonetics, Physiology of Speech Production, and Contrastive Linguistics.</p>
+          <p class="prev">I also previously taught a range of linguistics and Spanish courses at the University of Victoria, Simon Fraser University, Brock University, and the University of Toronto, including Acoustic Phonetics, Physiology of Speech Production, and Contrastive Linguistics.</p>
         </div>
       </div>
     </div>
@@ -936,7 +945,7 @@ details.all[open] summary .chev { transform: rotate(180deg); }
   <section class="band" id="background" aria-labelledby="bg-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Background</p>
+        <p class="eyebrow">Academic Background</p>
         <h2 class="h2" id="bg-h">From Toronto to Tallahassee</h2>
       </div>
       <ol class="path">
@@ -970,7 +979,7 @@ details.all[open] summary .chev { transform: rotate(180deg); }
           <li><span class="yr">2025</span><span class="txt">First Year Assistant Professor Grant<span>Florida State University</span></span></li>
           <li><span class="yr">2014–2017</span><span class="txt">Joseph-Armand Bombardier Canada Graduate Scholarship<span>Social Sciences and Humanities Research Council of Canada</span></span></li>
           <li><span class="yr">2022</span><span class="txt">Student Achievement Award<span>Canadian Linguistic Association</span></span></li>
-          <li><span class="yr">2014–2019</span><span class="txt">Junior Fellow<span>Massey College, University of Toronto</span></span></li>
+          <li><span class="yr">2015</span><span class="txt">Early Career Research Award<span>International Symposium on Monolingual and Bilingual Speech, University of Crete</span></span></li>
         </ul>
       </div>
     </div>
@@ -983,7 +992,7 @@ details.all[open] summary .chev { transform: rotate(180deg); }
     <div class="contact-grid">
       <div>
         <h2 id="contact-h">Get in touch</h2>
-        <p class="lede">For research collaborations, graduate supervision, or questions about the Spanish program, email is the best way to reach me.</p>
+        <p class="lede">For research collaborations, graduate supervision, joining one of my projects, email is the best way to reach me.</p>
         <div class="email-line">
           <a class="email" id="email" href="mailto:mpatience@fsu.edu">mpatience@fsu.edu</a>
           <button type="button" class="copy" id="copy-email">Copy address</button>
