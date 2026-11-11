@@ -444,6 +444,12 @@ a:hover { color: var(--accent-strong); }
 .pub-auth { margin-top: 0.4rem; font-size: 0.9rem; color: var(--muted); }
 .me { color: var(--fg); font-weight: 600; }
 
+.wip { margin-top: 3.5rem; display: flex; flex-direction: column; gap: 1rem; }
+.wip-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 2rem; }
+.wip-head h3 { font-family: var(--f-display); font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.15; letter-spacing: -0.01em; }
+.wip-head p { color: var(--muted); font-size: 0.95rem; }
+.status { align-self: flex-start; font-family: var(--f-mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 999px; padding: 0.15rem 0.6rem; border: 1px solid var(--rule); color: var(--muted); }
+.status.submitted { border-color: var(--accent); color: var(--accent); }
 details.all { margin-top: 2rem; }
 details.all summary {
   display: inline-flex;
@@ -826,7 +832,34 @@ details.all[open] summary .chev { transform: rotate(180deg); }
           <div><p class="pub-title">Initial prosodic cues in statements vs. questions</p><p class="pub-auth"><span class="me">Patience, M.</span>, Marasco, O., Colantoni, L., Klassen, G., Radu, M., &amp; Tararova, O. · 463–467</p></div>
         </li>
       </ol>
-
+      <div class="wip" aria-labelledby="wip-h">
+        <div class="wip-head">
+          <h3 id="wip-h">Work in progress</h3>
+          <p>Manuscripts submitted or in preparation.</p>
+        </div>
+        <ol class="pubs">
+          <li class="pub">
+            <div class="pub-meta"><span class="status submitted">Submitted</span></div>
+            <div><p class="pub-title">Investigating crosslinguistic influence in L3 production through acoustic analysis and machine-learning classification</p><p class="pub-auth"><span class="me">Patience, M.</span></p></div>
+          </li>
+          <li class="pub">
+            <div class="pub-meta"><span class="status">In preparation</span></div>
+            <div><p class="pub-title">Low-stakes AI avatar practice for Spanish oral assessments: Student perceptions from beginner and intermediate undergraduate courses</p><p class="pub-auth"><span class="me">Patience, M.</span></p></div>
+          </li>
+          <li class="pub">
+            <div class="pub-meta"><span class="status">In preparation</span></div>
+            <div><p class="pub-title">Exploring the multilingual mind: Phonological transfer in the initial state of an artificial language</p><p class="pub-auth"><span class="me">Patience, M.</span></p></div>
+          </li>
+          <li class="pub">
+            <div class="pub-meta"><span class="status">In preparation</span></div>
+            <div><p class="pub-title">Evaluating the effectiveness of asynchronous online pronunciation training in Spanish</p><p class="pub-auth"><span class="me">Patience, M.</span>, &amp; Bird, S.</p></div>
+          </li>
+          <li class="pub">
+            <div class="pub-meta"><span class="status">In preparation</span></div>
+            <div><p class="pub-title">Investigating the role of individual skill differences when learning the pronunciation of a phonologically complex Canadian Indigenous language</p><p class="pub-auth"><span class="me">Patience, M.</span>, &amp; Bird, S.</p></div>
+          </li>
+        </ol>
+      </div>
       <details class="all">
         <summary>All publications (16) <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
         <div class="all-body">
